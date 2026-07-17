@@ -13,35 +13,65 @@ pipeline {
             }
         }
 
-        stage('Build Backend Image') {
+
+        stage('Docker Login') {
             steps {
-                sh 'docker build -t $DOCKERHUB_USERNAME/inventory-backend:latest ./backend'
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh '''
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                    '''
+                }
             }
         }
+
+
+        stage('Build Backend Image') {
+            steps {
+                sh '''
+                docker build -t $DOCKERHUB_USERNAME/inventory-backend:latest ./backend
+                '''
+            }
+        }
+
 
         stage('Build Frontend Image') {
             steps {
-                sh 'docker build -t $DOCKERHUB_USERNAME/inventory-frontend:latest ./frontend'
+                sh '''
+                docker build -t $DOCKERHUB_USERNAME/inventory-frontend:latest ./frontend
+                '''
             }
         }
+
 
         stage('Push Backend Image') {
             steps {
-                sh 'docker push $DOCKERHUB_USERNAME/inventory-backend:latest'
+                sh '''
+                docker push $DOCKERHUB_USERNAME/inventory-backend:latest
+                '''
             }
         }
 
+
         stage('Push Frontend Image') {
             steps {
-                sh 'docker push $DOCKERHUB_USERNAME/inventory-frontend:latest'
+                sh '''
+                docker push $DOCKERHUB_USERNAME/inventory-frontend:latest
+                '''
             }
         }
     }
+
 
     post {
         success {
             echo 'Build Successful!'
         }
+
         failure {
             echo 'Build Failed!'
         }
