@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        navy: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        ::placeholder {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100">
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+
+            <!-- Brand -->
+            <div class="flex items-center justify-center gap-2 mb-8">
+                <div
+                    class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center font-bold text-xl text-white">
+                    S</div>
+                <span class="font-bold text-2xl text-slate-800">Smart Inventory</span>
+            </div>
+
+            <!-- Login Card -->
+            <div class="bg-white rounded-xl shadow-sm p-8">
+                <h1 class="text-2xl font-bold text-slate-800 mb-1">Welcome back</h1>
+                <p class="text-slate-500 text-sm mb-6">Login to manage your inventory</p>
+
+                <form id="loginForm" class="space-y-5" onsubmit="return handleLogin(event)">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-1.5">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required
+                            class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600 mb-1.5">Password</label>
+                        <div class="relative">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required
+                                class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-11">
+                            <button type="button" onclick="togglePassword()"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center gap-2 text-slate-600">
+                            <input type="checkbox" class="w-4 h-4 accent-blue-600">
+                            Remember me
+                        </label>
+                        <a href="#" class="text-blue-600 hover:underline font-medium">Forgot password?</a>
+                    </div>
+
+                    <p id="loginError" class="hidden text-red-500 text-sm"></p>
+
+                    <button type="submit"
+                        class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-lg transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Login
+                    </button>
+                </form>
+
+                <p class="text-center text-sm text-slate-500 mt-6">
+                    Don't have an account?
+                    <a href="#" class="text-blue-600 hover:underline font-medium">Contact admin</a>
+                </p>
+            </div>
+
+            <p class="text-center text-xs text-slate-400 mt-6">© 2026 Smart Inventory. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('loginPassword');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>';
+            } else {
+                input.type = 'password';
+                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>';
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorMsg = document.getElementById('loginError');
+
+            if (!email || !password) {
+                errorMsg.textContent = 'Please enter email and password.';
+                errorMsg.classList.remove('hidden');
+                return false;
+            }
+
+            // TODO: replace this with an actual API/database check
+            errorMsg.classList.add('hidden');
+            window.location.href = 'products.html';
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

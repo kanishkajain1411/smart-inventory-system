@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory - Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        navy: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        ::placeholder {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100">
+
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-60 bg-navy text-white flex flex-col shrink-0">
+            <div class="flex items-center gap-2 px-6 py-6">
+                <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center font-bold text-lg">S</div>
+                <span class="font-bold text-lg">Smart Inventory</span>
+            </div>
+
+            <nav class="flex-1 px-4 space-y-1 mt-2">
+                <a href="Dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6 0h6m-6 0H5a2 2 0 01-2-2V5a2 2 0 012-2h4l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="products.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                    <span>Products</span>
+                </a>
+                <a href="categories.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-600 text-white font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    <span>Categories</span>
+                </a>
+                <a href="suppliers.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 16.5V15a2 2 0 012-2h2m0-2V9a2 2 0 012-2h6a2 2 0 012 2v2m0 2h2a2 2 0 012 2v1.5M5 19.5h14a1 1 0 001-1v-1a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1z" />
+                    </svg>
+                    <span>Suppliers</span>
+                </a>
+                <a href="Orders.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Orders</span>
+                </a>
+                <a href="users.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-3.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-4-4" />
+                    </svg>
+                    <span>Users</span>
+                </a>
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-white/5 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="flex-1 p-8">
+            <h1 class="text-3xl font-bold text-slate-800 mb-6">Category Management</h1>
+
+            <!-- Add New Category -->
+            <section class="bg-white rounded-xl shadow-sm p-8 mb-8">
+                <h2 class="text-xl font-bold text-slate-800 mb-6">Add New Category</h2>
+
+                <form id="categoryForm" class="space-y-5" onsubmit="return addCategory(event)">
+                    <input type="text" id="catName" placeholder="Category Name" required
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+
+                    <textarea id="catDesc" placeholder="Description" rows="3"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+
+                    <div class="flex items-center gap-4">
+                        <select id="catStatus"
+                            class="border border-slate-300 rounded-lg px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+
+                        <button type="submit"
+                            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-lg transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-6 4l3 3m0 0l3-3m-3 3V2" />
+                            </svg>
+                            Save Category
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Categories List -->
+            <section class="bg-white rounded-xl shadow-sm p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-slate-800">Categories List</h2>
+                    <input type="text" id="searchInput" placeholder="Search Category..." onkeyup="filterTable()"
+                        class="border border-slate-300 rounded-lg px-4 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-600 text-sm">
+                                <th class="px-4 py-3 font-semibold">ID</th>
+                                <th class="px-4 py-3 font-semibold">Name</th>
+                                <th class="px-4 py-3 font-semibold">Description</th>
+                                <th class="px-4 py-3 font-semibold">Status</th>
+                                <th class="px-4 py-3 font-semibold">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody" class="divide-y divide-slate-100">
+                            <!-- Rows will be added here dynamically from database -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+
+
+        const API_URL = "http://localhost:5000/api";
+
+        let editId = null;
+
+
+        // ================= LOAD CATEGORIES =================
+
+        function loadCategories() {
+
+            fetch(`${API_URL}/categories`)
+                .then(res => res.json())
+                .then(categories => {
+
+                    const tbody = document.getElementById("categoryTableBody");
+
+                    tbody.innerHTML = "";
+
+
+                    categories.forEach(category => {
+
+
+                        tbody.innerHTML += `
+
+            <tr>
+
+                <td class="px-4 py-4">
+                    ${category.id}
+                </td>
+
+
+                <td class="px-4 py-4 font-medium">
+                    ${category.name}
+                </td>
+
+
+                <td class="px-4 py-4 text-slate-500">
+                    ${category.description || "-"}
+                </td>
+
+
+                <td class="px-4 py-4">
+                    <span class="text-emerald-600 font-medium">
+                        Active
+                    </span>
+                </td>
+
+
+                <td class="px-4 py-4">
+
+                    <button 
+                    onclick="editCategory(${category.id})"
+                    class="bg-yellow-400 text-white px-3 py-1 rounded mr-2">
+                    Edit
+                    </button>
+
+
+                    <button 
+                    onclick="deleteCategory(${category.id})"
+                    class="bg-red-500 text-white px-3 py-1 rounded">
+                    Delete
+                    </button>
+
+                </td>
+
+
+            </tr>
+
+
+            `;
+
+
+                    });
+
+
+                });
+
+
+        }
+
+
+
+
+        // ================= ADD / UPDATE CATEGORY =================
+
+
+        function addCategory(e) {
+
+            e.preventDefault();
+
+
+
+            let data = {
+
+                name: document.getElementById("catName").value,
+
+                description: document.getElementById("catDesc").value
+
+            };
+
+
+
+            let url = `${API_URL}/categories`;
+
+            let method = "POST";
+
+
+
+            if (editId) {
+
+                url = `${API_URL}/categories/${editId}`;
+
+                method = "PUT";
+
+            }
+
+
+
+            fetch(url, {
+
+                method: method,
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(data)
+
+
+            })
+
+
+                .then(res => res.json())
+
+                .then(result => {
+
+
+                    alert(result.message);
+
+
+                    document.getElementById("categoryForm").reset();
+
+
+                    editId = null;
+
+
+                    loadCategories();
+
+
+
+                })
+
+                .catch(error => {
+
+                    console.log(error);
+
+                    alert("Category save failed");
+
+
+                });
+
+
+
+        }
+
+
+
+
+        // ================= DELETE CATEGORY =================
+
+
+        function deleteCategory(id) {
+
+
+            if (confirm("Delete this category?")) {
+
+
+                fetch(`${API_URL}/categories/${id}`, {
+
+                    method: "DELETE"
+
+                })
+
+
+                    .then(res => res.json())
+
+                    .then(data => {
+
+
+                        alert(data.message);
+
+
+                        loadCategories();
+
+
+                    });
+
+
+            }
+
+
+        }
+
+
+
+
+        // ================= EDIT CATEGORY =================
+
+
+        function editCategory(id) {
+
+
+            fetch(`${API_URL}/categories/${id}`)
+
+                .then(res => res.json())
+
+                .then(category => {
+
+
+                    editId = id;
+
+
+                    document.getElementById("catName").value = category.name;
+
+
+                    document.getElementById("catDesc").value = category.description;
+
+
+
+                });
+
+
+        }
+
+
+
+
+
+        // ================= SEARCH =================
+
+
+        function filterTable() {
+
+
+            let search = document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+
+
+            document.querySelectorAll("#categoryTableBody tr")
+
+                .forEach(row => {
+
+
+                    row.style.display =
+
+                        row.innerText.toLowerCase().includes(search)
+
+                            ?
+                            ""
+                            :
+                            "none";
+
+
+
+                });
+
+
+        }
+
+
+
+
+        // PAGE LOAD
+
+        window.onload = function () {
+
+            loadCategories();
+
+        }
+
+
+
+    </script>
+    </script>
+
+</body>
+
+</html>

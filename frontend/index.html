@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <h2>Smart Inventory</h2>
+            </div>
+
+            <ul class="menu">
+
+                <li class="active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </li>
+
+                <li onclick="window.location.href='products.html'">
+                    <i class="fa-solid fa-box"></i>
+                    Products
+                </li>
+
+                <li onclick="window.location.href='categories.html'">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Categories
+                </li>
+                <li onclick="window.location.href='suppliers.html'">
+                    <i class="fa-solid fa-truck"></i>
+                    Suppliers
+                </li>
+
+                <li onclick="window.location.href='orders.html'">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Orders
+                </li>
+
+                <li onclick="window.location.href='users.html'">
+                    <i class="fa-solid fa-users"></i>
+                    Users
+                </li>
+                <li onclick="window.location.href='settings.html'">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+
+
+            </ul>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <div class="topbar">
+
+                <h1>Dashboard</h1>
+
+                <div class="profile">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <div>
+                        <h4>Kanishka</h4>
+                        <span>Admin</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Dashboard Cards -->
+
+            <div class="cards">
+
+                <div class="card">
+                    <div>
+                        <h3>Total Products</h3>
+                        <h1 id="totalProducts">0</h1>
+                    </div>
+
+                    <i class="fa-solid fa-box"></i>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Total Categories</h3>
+                        <h1 id="totalCategories">0</h1>
+                    </div>
+
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Low Stock</h3>
+                        <h1 id="lowStock">0</h1>
+                    </div>
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Inventory Value</h3>
+                        <h1 id="inventoryValue">₹0</h1>
+                    </div>
+
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+
+            </div>
+
+            <!-- Recent Inventory -->
+
+            <div class="table-section">
+
+                <h2>Recent Inventory</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+                    <tbody id="recentProductsTable">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
