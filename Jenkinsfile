@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USERNAME = "kanishkajain1411"
+        DOCKERHUB_USERNAME = "kanishkajain1411"
     }
 
     stages {
@@ -15,25 +15,25 @@ pipeline {
 
         stage('Build Backend Image') {
             steps {
-                bat 'docker build -t %DOCKER_USERNAME%/inventory-backend:latest backend'
+                sh 'docker build -t $DOCKERHUB_USERNAME/inventory-backend:latest ./backend'
             }
         }
 
         stage('Build Frontend Image') {
             steps {
-                bat 'docker build -t %DOCKER_USERNAME%/inventory-frontend:latest frontend'
+                sh 'docker build -t $DOCKERHUB_USERNAME/inventory-frontend:latest ./frontend'
             }
         }
 
         stage('Push Backend Image') {
             steps {
-                bat 'docker push %DOCKER_USERNAME%/inventory-backend:latest'
+                sh 'docker push $DOCKERHUB_USERNAME/inventory-backend:latest'
             }
         }
 
         stage('Push Frontend Image') {
             steps {
-                bat 'docker push %DOCKER_USERNAME%/inventory-frontend:latest'
+                sh 'docker push $DOCKERHUB_USERNAME/inventory-frontend:latest'
             }
         }
     }
@@ -42,7 +42,6 @@ pipeline {
         success {
             echo 'Build Successful!'
         }
-
         failure {
             echo 'Build Failed!'
         }
