@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://98.84.159.185:5000/api";
 
 // ================= Dashboard Cards =================
 
