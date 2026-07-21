@@ -6,14 +6,15 @@ def create_app():
 
     app = Flask(__name__)
 
-    # Allow requests from frontend
     CORS(app)
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://inventory_user:inventory123@postgres:5432/inventory_db"
 
     db.init_app(app)
 
-    # Create database tables
+    # 👇 Ye line add karo
+    from .models import Category, Product, Supplier, Order, User
+
     with app.app_context():
         db.create_all()
 
